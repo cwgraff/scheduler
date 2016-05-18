@@ -5,7 +5,7 @@ var pg = require('pg');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var database = require('./routes/database');
+//var database = require('./routes/database');
 var localStrategy = require('passport-local').Strategy;
 var connectionString = 'postgres://localhost:5432/campwhere';
 
@@ -13,7 +13,7 @@ var app = express();
 
 app.use(express.static('server/public'));
 
-app.use('/getData', database);
+//app.use('/getData', database);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -33,7 +33,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //app.use(passport.initialize());
 //app.use(passport.session());
 //
-//app.use('/', index);
+app.use('/', index);
 //
 //passport.serializeUser(function(user, done){
 //    console.log('serializeUser', user);
@@ -89,9 +89,9 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 
 //##### redirect catch for routing refresh #####
-app.get('/*', function(request, response){
-    response.redirect('/');
-});
+//app.get('/*', function(request, response){
+//    response.redirect('/');
+//});
 
 //###### Server #######
 var server = app.listen(3000, function(){
