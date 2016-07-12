@@ -1,7 +1,15 @@
 var express = require('express');
-var path = require('path');
+var mysql = require('mysql');
 
 var router = express.Router();
+
+var connection = mysql.createConnection({
+    host     : 'localhost:3306',
+    user     : 'root',
+    password : 'secret',
+    database : 'Dates'
+});
+
 
 //Serve index.html back to browser
 router.get('/', function(request, response){
@@ -18,4 +26,3 @@ router.get('/', function(request, response){
 
 
 module.exports = router;
-

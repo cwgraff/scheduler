@@ -7,14 +7,17 @@
     <script src="vendor/angular-route/angular-route.min.js"></script>
     <script src="assets/scripts/client.min.js"></script>
     <link rel="stylesheet" href="assets/styles/styles.css">
-    <base href="/">
 </head>
 <body ng-controller = "mainController">
 <header>
     <h1>Scheduler App</h1>
-
-    <h5> - schedule some stuff - </h5>
-    </div>
 </header>
+<h5>View a Scheduled Screening Date:</h5>
+<form>
+    <label for="newdate">Select a New Screening Date:</label>
+    <input type="date" id="newdate">
+    <input type="submit" value="Add New Date" ng-click="">
+</form>
+{{greeting}}
 </body>
 </html>
