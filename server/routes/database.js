@@ -1,12 +1,14 @@
 var express = require('express');
 var mysql = require('mysql');
 
+require('../env.js');
+
 var router = express.Router();
 
 var connection = mysql.createConnection({
     host     : 'localhost:3306',
     user     : 'root',
-    password : 'secret',
+    password : process.env.DB_KEY,
     database : 'Dates'
 });
 
