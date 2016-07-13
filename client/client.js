@@ -24,6 +24,7 @@ app.controller('mainController', ['$scope', '$http', function($scope, $http){
 
     $http.get('/database/existingDates').then(function(response){
        console.log("Heard back from server:" + response.data);
+        $scope.dateList = response.data;
     });
 //change start and stop slot times here for date creation times
 var FIRST_SLOT = 730;

@@ -13,6 +13,10 @@
     <h1>Scheduler App</h1>
 </header>
 <h5>View a Scheduled Screening Date:</h5>
+<p ng-repeat="date in dateList">
+    {{date | date: 'fullDate'}}
+    <br></br>
+</p>
 <form>
     <label for="newdate">Select a New Screening Date:</label>
     <input type="date" id="newdate">
