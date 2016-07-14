@@ -10,12 +10,12 @@ var app = express();
 
 app.use(express.static('server/public'));
 
-app.use('/database', database);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/', index);
+app.use('/database', database);
 
 
 //###### Server #######

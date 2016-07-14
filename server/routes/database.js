@@ -42,6 +42,36 @@ router.get('/existingDates', function(request, response){
 
 
 });
+
+router.post('/submitNewDate', function(request, response){
+    console.log(request.body);
+    var addNewDate = request.body.date;
+    console.log('Date Route Hit: ', addNewDate);
+    connection.connect();
+
+
+        var queryString = "INSERT INTO Dates (date) VALUES (?);";
+
+        connection.query(queryString, addNewDate, function (error, results, fields) {
+        // error will be an Error if one occurred during the query
+        // results will contain the results of the query
+        //response.sendStatus(200);
+    });
+
+    //connection.end();
+
+    //query.on('error', function (error){
+    //        done();
+    //        console.log(error);
+    //        return response.status(500).json({ success: false, data: error});
+    //    });
+    //
+    //    query.on('end', function () {
+    //        client.end();
+    //        return response.sendStatus(200);
+    //    });
+    //});
+});
 //
 //router.get('/success', function(request, response){
 //    response.send('success');

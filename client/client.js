@@ -40,6 +40,18 @@ for (var i = FIRST_SLOT; i <= LAST_SLOT; i += 15) {
     console.log(i + " hello");
 
 }
+
+    // Add a custom meeting date to the db
+    $scope.addNewDate = function () {
+        console.log('New Date Function Fired');
+        var addDate = {};
+        addDate.date = $scope.dateToAdd;
+        console.log(addDate.date);
+        $http.post('/database/submitNewDate', addDate).then(function(response){
+            $scope.dateToAdd = null;
+            //grabDates();
+        });
+    };
 }]);
 
 
